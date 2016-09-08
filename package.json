@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "angular-coursera",
+  "scripts" : {
+    "start": "browser-sync start --server --directory --files \"**/*\" "
+  },
+  "dependencies": {
+    "browser-sync": "^2.15.0"
+  }
+}
