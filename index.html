@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
-    <title>Coursera | Angular</title>
+    <title>Angular 1.5 Test App</title>
 </head>
-
 <body>
-    <h1>Hello Coursera</h1>
-</body>
+    <h1>Starting App</h1>
+    <div ng-controller="MainController">
+        <input type="text" ng-model="name"><br />
+        {{name}}
+    </div>
 
+    <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+</body>
 </html>
