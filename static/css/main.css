@@ -7,9 +7,12 @@ nav {
     box-shadow: 0 0 3px 0 #333;
     display: flex;
     justify-content: space-between;
+    background-color: rgba(0,0,0,0.1);
 }
 .logo {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .logo img {
     padding: 6px;
@@ -39,6 +42,7 @@ nav li {
     font-weight: normal;
     margin-bottom: 6px;
     color: #111;
+    font-size: 2.5em;
 }
 .subhead {
     font-size: 0.85em;
@@ -48,6 +52,7 @@ nav li {
 .main input[type="text"] {
     padding: 0 6px 0 6px;
     border: 0;
+    font-size: 1.5em;
     border-bottom: 1px solid #000;
     margin-bottom: 6px;
     min-width: 50%;
@@ -66,4 +71,16 @@ nav li {
     margin-top: 50px;
     padding: 16px;
     font-size: 2em;
+}
+.success {
+    background-color: #32bd07;
+    color: #fff;
+}
+.fail {
+    background-color: #d22828;
+    color: #fff;
+}
+.error {
+    background-color: #c7c136;
+    color: #fff;
 }

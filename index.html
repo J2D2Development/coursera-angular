@@ -7,10 +7,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
-    <nav>
+    <nav ng-controller="NavBarController">
         <div class="logo">
             <img src="static/img/AngularJS-Shield-small.png" alt="Angular Shield" />
             <img src="static/img/j2d2MainLogo.png" alt="J2D2" />
+            {{title}}
         </div>
         <ul>
             <li>See below for solution</li>
@@ -20,12 +21,23 @@
     <div class="main" ng-controller="LunchCheckController">
         <h1>What do you want for lunch?</h1>
         <div class="subhead">Please enter items separated by a comma</div>
-        <input type="text" ng-model="lunchItems" placeholder="Enter Items Here" autofocus>
+        <input type="text"
+            ng-model="lunchItems"
+            ng-keyup="clearError()"
+            placeholder="Enter Items Here"
+            autofocus
+        />
         <div class="input-wrapper">
-            <input type="button" value="Check if too much!" ng-click="checkLunchItems()" />
-            <input type="button" value="Clear" ng-click="clearLunchItems()" />
+            <input type="button"
+                value="Check if too much!"
+                ng-click="checkLunchItems()"
+            />
+            <input type="button"
+                value="Clear"
+                ng-click="clearLunchItemsAndMessage()"
+            />
         </div>
-        <div class="result-wrapper">
+        <div class="result-wrapper" ng-class="resultClass">
             {{message}}
         </div>
     </div>
