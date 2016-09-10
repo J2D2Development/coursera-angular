@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-    <title>Angular | Coursera</title>
+    <title>Angular - Coursera | Module 1</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
-    <h1>Links to projects below</h1>
-    <div ng-controller="MainController">
+    <nav>
+        <div class="logo">
+            <img src="static/img/AngularJS-Shield-small.png" alt="Angular Shield" />
+            <img src="static/img/j2d2MainLogo.png" alt="J2D2" />
+        </div>
         <ul>
-            <li>
-                <a href="/NameCalcVanilla/indexNameCalc01.html">
-                    Name Calculator - Angular Version
-                </a>
-            </li>
-            <li>
-                <a href="/NameCalcAngular/indexNameCalcAng01.html">
-                    Name Calculator - Angular Version
-                </a>
-            </li>
+            <li>See below for solution</li>
         </ul>
+    </nav>
+
+    <div class="main" ng-controller="LunchCheckController">
+        <h1>What do you want for lunch?</h1>
+        <div class="subhead">Please enter items separated by a comma</div>
+        <input type="text" ng-model="lunchItems" placeholder="Enter Items Here" autofocus>
+        <div class="input-wrapper">
+            <input type="button" value="Check if too much!" ng-click="checkLunchItems()" />
+            <input type="button" value="Clear" ng-click="clearLunchItems()" />
+        </div>
+        <div class="result-wrapper">
+            {{message}}
+        </div>
     </div>
 
     <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
