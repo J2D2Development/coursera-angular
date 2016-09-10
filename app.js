@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('myApp', [])
+    angular.module('myApp', ['ngAnimate'])
         .controller('NavBarController', NavBarController)
         .controller('LunchCheckController', LunchCheckController);
 
