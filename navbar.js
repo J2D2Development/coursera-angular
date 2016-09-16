@@ -8,6 +8,6 @@
         var nav = this;
         nav.title = 'Welcome';
 
-        nav.home = '/';
+        nav.home = 'coursera-angular/';
     }
 })();
