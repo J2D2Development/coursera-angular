@@ -2,6 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
 }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+  border: 1px solid red;
+}
 nav {
     width: 100%;
     box-shadow: 0 0 3px 0 #333;
@@ -49,7 +53,40 @@ nav li {
     font-style: italic;
     margin-bottom: 50px;
 }
-.main input[type="text"] {
+.module-ext-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-width: 100%;
+}
+.module-wrapper {
+
+}
+.module-wrapper ul {
+    margin: 0;
+    padding: 0;
+}
+.module-wrapper li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*Module 1*/
+.main-module1 {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-module1 h1 {
+    font-weight: normal;
+    margin-bottom: 6px;
+    color: #111;
+    font-size: 2.5em;
+}
+.main-module1 input[type="text"] {
     padding: 12px;
     border: 0;
     box-shadow: 0 0 9px 1px #666;
@@ -57,7 +94,7 @@ nav li {
     margin-bottom: 16px;
     min-width: 50%;
 }
-.main input[type="text"]:focus {
+.main-module1 input[type="text"]:focus {
     outline: 0;
 }
 .input-wrapper {

@@ -6,19 +6,21 @@
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body>
-    <nav ng-controller="NavBarController">
+<body ng-controller="LunchCheckController">
+    <nav ng-controller="NavBarController as nav">
         <div class="logo">
-            <img src="../static/img/AngularJS-Shield-small.png" alt="Angular Shield" />
+            <a href="{{nav.home}}">
+                <img src="../static/img/AngularJS-Shield-small.png" alt="Angular Shield" />
+            </a>
             <img src="../static/img/j2d2MainLogo.png" alt="J2D2" />
-            {{title}}
+            {{nav.title}}
         </div>
         <ul>
             <li>See below for solution</li>
         </ul>
     </nav>
 
-    <div class="main" ng-controller="LunchCheckController">
+    <div class="main-module1">
         <h1>What do you want for lunch?</h1>
         <div class="subhead">Please enter items separated by a comma</div>
         <input type="text"
@@ -44,6 +46,7 @@
 
     <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
     <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="../navbar.js"></script>
     <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>
