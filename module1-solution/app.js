@@ -1,13 +1,11 @@
 (function() {
     'use strict';
 
-    angular.module('myApp', ['ngAnimate', 'NavBar'])
+    angular.module('myApp', ['ngAnimate'])
         .controller('LunchCheckController', LunchCheckController);
 
         LunchCheckController.$inject = ['$scope'];
-
         function LunchCheckController($scope) {
-            $scope.$parent.title = 'Assignment 1 Solution';
             $scope.lunchItems = '';
             $scope.message = '';
             $scope.resultClass = '';

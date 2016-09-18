@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Angular - Coursera | Factory</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <style type="text/css">
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <h1>The factory pattern!</h1>
+
+    <div class="wrapper">
+        <div ng-controller="DocChecklistController as doc">
+            <h2>Before submitting a document...</h2>
+            <div ng-if="doc.tasks.length === 0">You have no tasks!</div>
+            <ul style="display:relative;" ng-if="doc.tasks.length > 0">
+                <li ng-repeat="task in doc.tasks">
+                    <span style="display:absolute;left:0;top:0;"
+                            ng-click="doc.deleteTask($index)">
+                        X
+                    </span>
+                    {{task}}
+                    <input type="checkbox" ng-model="$index" />
+                </li>
+            </ul>
+
+            <input type="text" ng-model="doc.task" />
+            <button ng-click="doc.addTask()">Add</button>
+        </div>
+
+        <div ng-controller="CodeChecklistController as code">
+            <h2>Before submitting your code to svn...</h2>
+            <div ng-if="code.tasks.length === 0">You have no tasks!</div>
+            <ul style="display:relative;" ng-if="code.tasks.length > 0">
+                <li ng-repeat="task in code.tasks">
+                    <span style="display:absolute;left:0;top:0;"
+                            ng-click="code.deleteTask($index)">
+                        X
+                    </span>
+                    {{task}}
+                    <input type="checkbox" ng-model="$index" />
+                </li>
+            </ul>
+
+            <input type="text" ng-model="code.task" />
+            <button ng-click="code.addTask()">Add</button><br />
+            <div ng-if="code.errorMessage" style="background-color:red;color:white;padding:8px;margin: 16px 0 0 0;text-align: center;">
+                {{code.errorMessage}}
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

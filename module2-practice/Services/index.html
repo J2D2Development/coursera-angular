@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Angular - Coursera | Services</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+
+</head>
+
+<body>
+    <h1>Services</h1>
+
+    <div ng-controller="ShoppingListController as itemAdder">
+        <h3>Add Item...</h3>
+        <input type="text" ng-model="itemAdder.item" placeholder="Item Name" />
+        <input type="text" ng-model="itemAdder.quantity" />
+        <button ng-click="itemAdder.addItem()">Add</button>
+    </div>
+
+    <div ng-controller="ShoppingListShowController as showItems">
+        <h3>Items to buy...</h3>
+        <ul>
+            <li ng-repeat="item in showItems.items">
+                {{item.name}}: {{item.quantity}} <span ng-click="showItems.removeItem($index)">X</span>
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

@@ -3,25 +3,83 @@
 <head>
     <title>Angular - Coursera | Module 2 Solution</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
 </head>
-<body>
-    <nav>
+<body class="body-dark" ng-app="app">
+    <nav class="nav-reversed">
         <div class="logo">
             <img src="../static/img/AngularJS-Shield-small.png" alt="Angular Shield" />
             <img src="../static/img/j2d2MainLogo.png" alt="J2D2" />
-            <!-- {{nav.title}} -->
+            Module 2 Solution
         </div>
         <ul>
             <li>Welcome!</li>
         </ul>
     </nav>
 
-    <div class="main">
-        <h1>Coming soon!</h1>
+    <div class="main-horizontal module-wrapper ng-cloak">
+    <div class="two-thirds" ng-controller="ToBuyShoppingController as buy">
+            <h1>To Buy</h1>
+            <div class="items">
+                <ul>
+                    <li
+                        ng-repeat="item in buy.list"
+                        ng-class="buy.clicked === $index ? 'scale-down' : ''">
+                        <button
+                            title="Remove this item from list"
+                            class="button-left red"
+                            ng-click="buy.removeItem($index)">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        Buy {{item.quantity}} {{item.name}}
+                        <button title="Mark this item as bought" class="button-right" ng-click="buy.buyItem($index)">
+                            <i
+                                class="fa fa-check"
+                                ng-class="buy.success && buy.clicked === $index ? 'show-on-success' : ''"
+                                aria-hidden="true"></i>
+                            <span ng-class="buy.success && buy.clicked === $index ? 'hide-on-success' : ''">Bought</span>
+                        </button>
+                    </li>
+                    <li>
+                        Buy
+                        <input type="text" ng-model="buy.newItemQuantity" placeholder="Quantity" />
+                        <input type="text" ng-model="buy.newItemName" placeholder="Name" />
+                        <button class="button-right" ng-click="buy.addItem()">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Add Item
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="all-bought" ng-if="buy.list.length === 0">
+                Everything is Bought!
+            </div>
+        </div>
+        <div class="one-third" ng-controller="AlreadyBoughtShoppingController as bought">
+            <h2>Already Bought</h2>
+            <div ng-if="bought.cart.length === 0">Nothing Bought Yet!</div>
+            <div>
+                <ul>
+                    <li class="bought-item"
+                        ng-repeat="item in bought.cart">
+                        <button
+                            class="button-left"
+                            title="Move back to buy list"
+                            ng-click="bought.moveBack($index, item.quantity, item.name)">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                        Bought {{item.quantity}} {{item.name}}
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-<!--     <script type="text/javascript" src="./navbar.js"></script>
-    <script type="text/javascript" src="./app.js"></script> -->
 </body>
 </html>
