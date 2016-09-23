@@ -15,7 +15,11 @@
         bought.moveBack = function(index, quantity, name) {
             ShoppingListCheckOffService.removeItemFromBoughtList(index);
             ShoppingListCheckOffService.addItem(name, quantity);
-        }
+        };
+
+        bought.cartIsEmpty = function() {
+            return bought.cart.length === 0;
+        };
     }
 
     ToBuyShoppingController.$inject = ['ShoppingListCheckOffService', '$timeout'];
@@ -38,13 +42,17 @@
                 ShoppingListCheckOffService.buyItem(buy.clicked);
                 buy.clicked = 999;
             }, 300);
-        }
+        };
 
         buy.addItem = function() {
             ShoppingListCheckOffService.addItem(buy.newItemName, buy.newItemQuantity);
             buy.newItemName = '';
             buy.newItemQuantity = '';
-        }
+        };
+
+        buy.listIsEmpty = function() {
+            return buy.list.length === 0;
+        };
 
         buy.removeItem = ShoppingListCheckOffService.removeItemFromBuyList;
     }

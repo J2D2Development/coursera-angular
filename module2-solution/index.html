@@ -57,13 +57,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="all-bought" ng-if="buy.list.length === 0">
+            <div class="all-bought" ng-if="buy.listIsEmpty()">
                 Everything is Bought!
             </div>
         </div>
         <div class="one-third" ng-controller="AlreadyBoughtShoppingController as bought">
             <h2>Already Bought</h2>
-            <div ng-if="bought.cart.length === 0">Nothing Bought Yet!</div>
+            <div ng-if="bought.cartIsEmpty()">Nothing Bought Yet!</div>
             <div>
                 <ul>
                     <li class="bought-item"
