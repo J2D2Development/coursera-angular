@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular - Coursera | Promises</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+</head>
+<body ng-app="app">
+    <h1>Http to get categories</h1>
+    <div class="main-horizontal module-wrapper" ng-controller="MenuCategoriesController as menu">
+        <div class="one-third">
+            <ul>
+                <li ng-repeat="category in menu.categories">
+                    <a ng-click="menu.getMenuItems(category.short_name)">
+                        {{category.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="two-thirds">
+            <ul>
+                <li ng-repeat="item in menu.items">
+                    <h3>{{item.name}}</h3>
+                    {{item.description}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
