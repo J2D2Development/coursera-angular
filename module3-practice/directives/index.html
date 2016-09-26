@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular - Coursera | Promises</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+</head>
+<body ng-app="app">
+
+<div class="main-horizontal">
+    <div ng-controller="ShoppingListOneController as list1">
+        <h1 class="h1-alt-color">List 1</h1>
+        <input type="text" ng-model="list1.itemName" placeholder="Item Name" />
+        <input type="text" ng-model="list1.itemQuantity" placeholder="Item Quantity" />
+        <input type="button" ng-click="list1.addItem()" value="Add Item" />
+        <div>
+            <shopping-list
+                my-list="list1"
+                title="{{list1.title}}"
+                remove="list1.removeItem(index)">
+            </shopping-list>
+        </div>
+    </div>
+    <div ng-controller="ShoppingListTwoController as list2">
+        <h1 class="h1-alt-color">List 2</h1>
+        <input type="text" ng-model="list2.itemName" placeholder="Item Name" />
+        <input type="text" ng-model="list2.itemQuantity" placeholder="Item Quantity" />
+        <input type="button" ng-click="list2.addItem()" value="Add Item" />
+        <div>
+            <shopping-list
+                my-list="list2"
+                title="{{list2.title}} (Limit: 3)"
+                remove="list2.removeItem(index)">
+            </shopping-list>
+            <span ng-if="list2.errorMessage()" class="error fail">{{list2.errorMessage()}}</span>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
