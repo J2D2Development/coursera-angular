@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('NarrowItDownApp', ['ngAnimate', 'HeaderComponent'])
+    angular.module('NarrowItDownApp', ['ngAnimate'])
         .controller('NarrowItDownController', NarrowItDownController)
         .service('MenuSearchService', MenuSearchService)
         .directive('foundItems', FoundItems);
