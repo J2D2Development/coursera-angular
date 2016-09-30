@@ -13,6 +13,8 @@
         var sl = ShoppingListServiceFactory();
         var originalTitle = 'List 1';
 
+        listOne.warning = 'LIST ONE WARNING';
+
         listOne.items = sl.getItems();
         listOne.title = originalTitle + '(' + listOne.items.length + ' items)';
         listOne.itemName = '';
@@ -46,6 +48,8 @@
         var listTwo = this;
         var sl = ShoppingListServiceFactory(3);
         var originalTitle = 'List 2';
+
+        listTwo.warning = 'LIST 2 WARNING';
 
         listTwo.items = sl.getItems();
         listTwo.title = originalTitle + '(' + listTwo.items.length + ' items)';
@@ -111,13 +115,44 @@
             templateUrl: './shopping-list.html',
             controller: ListController,
             bindToController: true,
-            controllerAs: 'ctrl'
+            controllerAs: 'ctrl',
+            link: ShoppingListDirectiveLink,
+            transclude: true
         };
 
         return ddo;
     }
 
+    function ShoppingListDirectiveLink(scope, element, attrs, controller) {
+        var errorDiv = element.find('div');
+
+        scope.$watch('ctrl.cookiesInList()', function(newValue, oldValue) {
+            if(newValue === true) {
+                displayCookieWarning();
+            } else {
+                removeCookieWarning();
+            }
+        });
+
+        function displayCookieWarning() {
+            errorDiv.css('opacity', 1);
+        }
+
+        function removeCookieWarning() {
+            errorDiv.css('opacity', 0);
+        }
+    }
+
     function ListController() {
         var ctrl = this;
+
+        ctrl.cookiesInList = function() {
+            var arr = ctrl.list.items;
+            for(var i = 0; i < arr.length; i += 1) {
+                if(arr[i].itemName.indexOf('cookie') !== -1) {
+                    return true;
+                }
+            }
+        }
     }
 })();

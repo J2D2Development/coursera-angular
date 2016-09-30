@@ -1,0 +1,19 @@
+<div style="margin: 25px auto; width: 90%;position:relative;">
+    <div class="loader">
+        Loading...
+        <div class="loader-circle"></div>
+    </div>
+    <table class="menu-items">
+        <tr ng-repeat="item in found">
+            <td>({{item.short_name}})</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <button class="red" ng-click="removeItem($index)">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="menu-list-error">{{error}}</div>
+</div>

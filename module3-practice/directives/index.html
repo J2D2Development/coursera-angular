@@ -19,13 +19,13 @@
         <input type="text" ng-model="list1.itemName" placeholder="Item Name" />
         <input type="text" ng-model="list1.itemQuantity" placeholder="Item Quantity" />
         <input type="button" ng-click="list1.addItem()" value="Add Item" />
-        <div>
             <shopping-list
+                id="list1"
                 my-list="list1"
                 title="{{list1.title}}"
                 remove="list1.removeItem(index)">
+                <span class="warning">WARNING! {{list1.warning}}</span>
             </shopping-list>
-        </div>
     </div>
     <div ng-controller="ShoppingListTwoController as list2">
         <h1 class="h1-alt-color">List 2</h1>
@@ -34,9 +34,11 @@
         <input type="button" ng-click="list2.addItem()" value="Add Item" />
         <div>
             <shopping-list
+                id="list2"
                 my-list="list2"
                 title="{{list2.title}} (Limit: 3)"
                 remove="list2.removeItem(index)">
+                <span class="warning">WARNING! {{list2.warning}}</span>
             </shopping-list>
             <span ng-if="list2.errorMessage()" class="error fail">{{list2.errorMessage()}}</span>
         </div>
