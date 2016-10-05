@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular - Coursera | Events</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./loading-spinner.module.js"></script>
+    <script type="text/javascript" src="./loading-spinner.component.js"></script>
+    <script type="text/javascript" src="./shopping-list.module.js"></script>
+    <script type="text/javascript" src="./shopping-list.component.js"></script>
+    <!-- <script type="text/javascript" src="./weight-loss.service.js"></script> -->
+    <script type="text/javascript" src="./app.js"></script>
+</head>
+<body ng-app="app">
+    <h1>Shopping list events based</h1>
+    <div ng-controller="ShoppingListController as sl">
+        <input type="text" ng-model="sl.name" placeholder="Name" />
+        <input type="text" ng-model="sl.quantity" placeholder="Quantity" />
+        <button ng-click="sl.addItem()">Add Item</button>
+        Last Removed: {{sl.removed.name}}  {{sl.removed.quantity}}
+        <shopping-list items="sl.items" title="{{sl.title}}" remove="sl.removeItem(index)"></shopping-list>
+    </div>
+
+
+
+    <loading-spinner></loading-spinner>
+</body>

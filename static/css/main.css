@@ -211,6 +211,23 @@ button .fa-check {
     z-index: 98;
 }
 
+.tabs {
+    width: 100%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.tabs a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    padding: 6px;
+    margin: 0 6px 0 6px;
+    font-size: 1.5em;
+}
+.active-tab {
+    background-color: rgb(200, 200, 255);
+}
+
 /*
 loading animatin by http://projects.lukehaas.me/css-loaders/
 */

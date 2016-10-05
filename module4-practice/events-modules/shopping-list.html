@@ -1,0 +1,8 @@
+<h3>{{$ctrl.title}}</h3>
+<ul>
+    <li ng-repeat="item in $ctrl.items">
+        {{item.name}}: {{item.quantity}}
+        <button ng-click="$ctrl.remove({index: $index})">X</button>
+    </li>
+</ul>
+<div class="errorOp">Cookies Detected!!!</div>
