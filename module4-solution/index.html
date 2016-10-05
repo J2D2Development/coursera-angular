@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="MenuApp">
+<head>
+    <title>Menu Application</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+
+    <script type="text/javascript" src="./js/menuapp.module.js"></script>
+    <script type="text/javascript" src="./js/data.module.js"></script>
+    <script type="text/javascript" src="./js/categories.component.js"></script>
+    <script type="text/javascript" src="./js/items.component.js"></script>
+    
+    <script type="text/javascript" src="./js/menudata.service.js"></script>
+    <script type="text/javascript" src="./js/routes.js"></script>
+</head>
+<body>
+
+<h1>Menu App</h1>
+<div class="tabs">
+    <a ui-sref="home" ui-sref-active="active-tab">Home</a>
+    <a ui-sref="categories" ui-sref-active="active-tab">Categories</a>
+    <a ui-sref="item" ui-sref-active="active-tab">Item</a>
+</div>
+<ui-view></ui-view>
+
+</body>
+</html>
