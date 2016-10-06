@@ -1,5 +1,6 @@
-Fuck off<br />
-test: {{$ctrl.test}}
 <ul>
-    <li ng-repeat="category in $ctrl.categories">hi</li>
+    <li ng-repeat="category in $ctrl.categories" 
+        ui-sref="item({short_name: category.short_name})">
+        ({{category.short_name}}) {{category.name}}
+    </li>
 </ul>

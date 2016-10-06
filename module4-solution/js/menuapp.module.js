@@ -2,12 +2,12 @@
     'use strict';
 
     angular.module('MenuApp', ['ui.router', 'data'])
-        .controller('CategoryCtrl', CategoryCtrl);
+    .controller('ItemsMainCtrl', ItemsMainCtrl);
 
-    CategoryCtrl.$inject = ['categories'];
-    function CategoryCtrl(categories) {
-        var cat = this;
-        cat.test = 'hello world';
-        console.log('categories!', categories);
+    ItemsMainCtrl.$inject = ['items'];
+    function ItemsMainCtrl(items) {
+        var it= this;
+        it.items = items.data.menu_items;
+        console.log(it.items);
     }
 })();

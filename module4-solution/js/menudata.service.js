@@ -15,6 +15,7 @@
         };
 
         md.getItemsForCategory = function(categoryShortName) {
+            console.log('sn:', categoryShortName);
             return $http({
                 type: 'GET',
                 url: 'https://davids-restaurant.herokuapp.com/menu_items.json',

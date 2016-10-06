@@ -16,7 +16,7 @@
             .state('categories', {
                 url: '/categories',
                 templateUrl: './templates/categories.template.html',
-                controller: 'CategoryCtrl as cat',
+                controller: 'CategoryMainCtrl as cat',
                 resolve: {
                     categories: ['MenuDataService', function(MenuDataService) {
                         return MenuDataService.getAllCategories();
@@ -24,8 +24,14 @@
                 }
             })
             .state('item', {
-                url: '/item',
-                template: 'you got items'
+                url: '/item/{short_name}',
+                templateUrl: './templates/items.template.html',
+                controller: 'ItemsMainCtrl as it',
+                resolve: {
+                    items: ['MenuDataService', '$stateParams', function(MenuDataService, $stateParams) {
+                        return MenuDataService.getItemsForCategory($stateParams.short_name);
+                    }]
+                }
             });
     }
 })();
