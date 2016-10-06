@@ -11,7 +11,7 @@
         $stateProvider
             .state('home', {
                 url: '/',
-                template: 'home now!'
+                templateUrl: './templates/home.template.html'
             })
             .state('categories', {
                 url: '/categories',

@@ -1,6 +1,8 @@
-<ul>
-    <li ng-repeat="category in $ctrl.categories" 
-        ui-sref="item({short_name: category.short_name})">
-        ({{category.short_name}}) {{category.name}}
-    </li>
-</ul>
+<div>
+    <ul class="module-ext-wrapper">
+        <li ng-repeat="category in $ctrl.categories"
+            ui-sref="item({short_name: category.short_name})">
+            ({{category.short_name}}) {{category.name}}
+        </li>
+    </ul>
+</div>

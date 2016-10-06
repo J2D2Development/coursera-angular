@@ -1,6 +1,14 @@
-items
-<ul>
-    <li ng-repeat="item in $ctrl.items">
-        {{item.name}}: {{item.description}}
-    </li>
-</ul>
+<div class="menu-item-wrapper" ng-repeat="item in $ctrl.items">
+    <div class="menu-item-wrapper--text">
+        <div class="menu-item-wrapper--titlerow">
+            <div class="menu-item-wrapper--title">{{item.name}}</div>
+            <div class="menu-item-wrapper--pricing">
+                <span ng-if="item.price_small">Lg: </span>{{item.price_large | currency}}
+                <span ng-if="item.price_small"> | Sm: {{item.price_small | currency}}</span>
+            </div>
+        </div>
+        <div class="menu-item-wrapper--desc">
+            {{item.description}}
+        </div>
+    </div>
+</div>

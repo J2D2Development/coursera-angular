@@ -50,7 +50,7 @@ nav li {
     margin-left: 6px;
 }
 .main {
-    margin-top: 50px;
+    margin-top: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,6 +62,15 @@ nav li {
     color: #111;
     font-size: 2.5em;
 }
+.main h2 {
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 32px;
+    color: #666;
+    font-size: 1.65em;
+    text-align: center;
+}
+
 .main-horizontal {
     margin-top: 35px;
     display: flex;
@@ -213,19 +222,23 @@ button .fa-check {
 
 .tabs {
     width: 100%;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    background-color: #111;
 }
 .tabs a {
     display: inline-block;
-    color: inherit;
+    color: #f5f5f5;
     text-decoration: none;
     padding: 6px;
     margin: 0 6px 0 6px;
     font-size: 1.5em;
+    transition: background-color 0.3s ease-in-out;
+}
+.tabs a:hover {
+    background-color: rgba(125,125,125,0.7);
 }
 .active-tab {
-    background-color: rgb(200, 200, 255);
+    background-color: #ccc !important;
+    color: #111 !important;
 }
 
 /*
@@ -318,10 +331,30 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
 .module-ext-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0px auto;
 }
+.module-ext-wrapper li {
+    list-style-type: none;
+    text-align: center;
+    background-color: #ccc;
+    padding: 12px;
+    margin: 0 12px 12px 0;
+    transform: scale(1);
+    width: 25%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+.module-ext-wrapper li:hover {
+    box-shadow: 0 0 6px #333;
+    transform: scale(1.25);
+    z-index: 2;
+}
+
 .module-wrapper {
 
 }
@@ -465,4 +498,79 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
 .one-third .fa-check {
     margin-left: 6px;
     color: rgb(0, 225, 100);
+}
+
+.home-grid {
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.home-grid--wrapper {
+    height: 300px;
+    width: 30%;
+    margin: 0 6px 0 6px;
+    position: relative;
+}
+.home-grid--caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    color: #f5f5f5;
+    font-size: 1.25em;
+    padding: 6px;
+    text-align: center;
+}
+.home-grid img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-item-wrapper {
+    border: 1px solid black;
+    margin: 12px auto;
+    width: 90%;
+}
+.menu-item-wrapper--text {
+    padding: 6px;
+}
+.menu-item-wrapper--titlerow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 9px;
+}
+.menu-item-wrapper--title {
+    font-size: 1.5em;
+    background-color: #ccc;
+    padding: 6px;
+}
+.menu-item-wrapper--pricing {
+    font-size: 0.75em;
+}
+.menu-item-wrapper--desc {
+
+}
+
+
+@media (max-width: 600px) {
+    .home-grid {
+        display: block;
+    }
+    .home-grid--wrapper {
+        width: 100%;
+        height: auto;
+        margin-top: 24px;
+    }
+    .module-ext-wrapper {
+        display: block;
+    }
+    .module-ext-wrapper li {
+        width: 100%;
+    }
+    .menu-item-wrapper--title {
+        background-color: inherit;
+    }
 }

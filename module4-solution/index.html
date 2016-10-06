@@ -2,6 +2,7 @@
 <html ng-app="MenuApp">
 <head>
     <title>Menu Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
@@ -19,17 +20,19 @@
     <script type="text/javascript" src="./js/items.component.js"></script>
     <script type="text/javascript" src="./js/category-main.controller.js"></script>
     <script type="text/javascript" src="./js/menudata.service.js"></script>
-    
+
 </head>
 <body>
 
-<h1>Menu App</h1>
-<div class="tabs">
+<nav class="tabs nav-reversed">
     <a ui-sref="home" ui-sref-active="active-tab">Home</a>
     <a ui-sref="categories" ui-sref-active="active-tab">Categories</a>
-    <a ui-sref="item" ui-sref-active="active-tab">Item</a>
+    <a ui-sref="item" ui-sref-active="active-tab">Items</a>
+</nav>
+
+<div class="main">
+    <ui-view></ui-view>
 </div>
-<ui-view></ui-view>
 
 </body>
 </html>
