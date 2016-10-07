@@ -15,7 +15,7 @@ body {
 nav {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .nav-classic {
     box-shadow: 0 0 3px 0 #333;
@@ -171,6 +171,10 @@ nav li {
 }
 .red:hover {
     color: rgba(255, 0, 50, 0.5);
+}
+.small {
+    font-size: 0.65em;
+    cursor: pointer;
 }
 button .fa-check {
     position: absolute;
@@ -522,6 +526,7 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
     height: 300px;
     width: 30%;
     margin: 0 6px 0 6px;
+    cursor: pointer;
     position: relative;
 }
 .home-grid--caption {
@@ -531,9 +536,14 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
     width: 100%;
     background-color: rgba(0,0,0,0.7);
     color: #f5f5f5;
-    font-size: 1.25em;
+    font-size: 1.5em;
+    transform: scale(0.6);
     padding: 6px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.home-grid--wrapper:hover .home-grid--caption {
+    transform: scale(1);
 }
 .home-grid img {
     width: 100%;

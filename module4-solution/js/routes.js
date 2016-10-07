@@ -24,13 +24,16 @@
                 }
             })
             .state('item', {
-                url: '/item/{short_name}',
+                url: '/{full_name}/{short_name}',
                 templateUrl: './templates/items.template.html',
                 controller: 'ItemsMainCtrl as it',
                 resolve: {
                     items: ['MenuDataService', '$stateParams', function(MenuDataService, $stateParams) {
                         return MenuDataService.getItemsForCategory($stateParams.short_name);
-                    }]
+                    }],
+                    catName: function($stateParams) {
+                        return $stateParams.full_name;
+                    }
                 }
             });
     }
