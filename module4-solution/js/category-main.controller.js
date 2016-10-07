@@ -8,6 +8,5 @@
     function CategoryMainCtrl(categories) {
         var cat = this;
         cat.categories = categories.data;
-        console.log(cat.categories);
     }
 })();

@@ -13,13 +13,18 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
     <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
 
+
     <script type="text/javascript" src="./js/menuapp.module.js"></script>
     <script type="text/javascript" src="./js/data.module.js"></script>
+    
     <script type="text/javascript" src="./js/routes.js"></script>
     <script type="text/javascript" src="./js/categories.component.js"></script>
     <script type="text/javascript" src="./js/items.component.js"></script>
+    
     <script type="text/javascript" src="./js/category-main.controller.js"></script>
+    <script type="text/javascript" src="./js/items-main.controller.js"></script>
     <script type="text/javascript" src="./js/menudata.service.js"></script>
+    <script type="text/javascript" src="./js/loading-spinner.module.js"></script>
 
 </head>
 <body>
@@ -31,7 +36,8 @@
 </nav>
 
 <div class="main">
-    <ui-view></ui-view>
+    <ui-view style="min-width:90%;"></ui-view>
+    <loading-spinner></loading-spinner>
 </div>
 
 </body>
