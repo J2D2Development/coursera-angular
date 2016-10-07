@@ -25,6 +25,9 @@ nav {
     box-shadow: 0 0 3px 0 #fff;
     background-color: rgba(255,255,255,0.6);
 }
+.nav-wide {
+    justify-content: space-between;
+}
 .logo {
     display: flex;
     align-items: center;
@@ -63,6 +66,25 @@ nav li {
     font-size: 2.5em;
 }
 .main h2 {
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 32px;
+    color: #666;
+    font-size: 1.65em;
+    text-align: center;
+}
+
+.main-mod4 {
+    margin-top: 35px;
+}
+.main-mod4 h1 {
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #111;
+    font-size: 2.5em;
+}
+.main-mod4 h2 {
     font-weight: normal;
     margin-top: 0;
     margin-bottom: 32px;
@@ -344,6 +366,8 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
     font-style: italic;
     margin-bottom: 50px;
 }
+
+
 .module-ext-wrapper {
     display: flex;
     flex-direction: row;
@@ -573,6 +597,39 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
 }
 .menu-item-wrapper--desc {
     padding: 0 12px 12px 12px;
+}
+
+/*HOMEPAGE GRID*/
+.main .module-ext-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0px auto;
+    width: 100%;
+}
+.main .module-ext-wrapper li {
+    list-style-type: none;
+    text-align: center;
+    background-color: #ccc;
+    padding: 12px;
+    margin: 0 12px 12px 0;
+    transform: scale(1);
+    width: 85%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+.main .module-ext-wrapper li:hover {
+    box-shadow: 0 0 6px #333;
+    transform: scale(1.15);
+    z-index: 2;
+}
+.main a {
+    color: inherit;
+    text-decoration: none;
 }
 
 

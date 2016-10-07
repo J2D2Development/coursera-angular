@@ -7,13 +7,12 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body ng-controller="MainController as main">
-    <nav ng-controller="NavBarController as nav">
+    <nav class="nav-classic nav-wide" ng-controller="NavBarController as nav">
         <div class="logo">
             <a href="{{nav.home}}">
                 <img src="static/img/AngularJS-Shield-small.png" alt="Angular Shield" />
             </a>
             <img src="static/img/j2d2MainLogo.png" alt="J2D2" />
-            {{nav.title}}
         </div>
         <ul>
             <li>Welcome!</li>
