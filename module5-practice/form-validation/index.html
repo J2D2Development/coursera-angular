@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular - Coursera | Forms</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="MainController as main" style="width: 85%;margin:5em auto;">
+        <h3>Form validation</h3>
+        <form name="formName"
+            ng-controller="MainController as main"
+            novalidate>
+            <div>
+                <input type="text"
+                    name="name"
+                    ng-model="main.user.name"
+                    required
+                    minlength="4"
+                    ng-maxlength="10" />
+                <span ng-if="formName.name.$error.required && formName.name.$touched">
+                    Name is Required!
+                </span>
+                <span ng-if="formName.name.$error.minlength && formName.name.$touched">
+                    Name must be longer than 4 chars.
+                </span>
+                <span ng-if="formName.name.$error.maxlength && formName.name.$touched">
+                    Name must be shorter than 10 chars.
+                </span>
+            </div>
+            <div>
+                <input type="email"
+                    name="email"
+                    ng-model="main.user.email"
+                    required />
+                <span ng-if="formName.email.$invalid && formName.email.$touched">
+                    Must be a valid email address!
+                </span>
+            </div>
+            <div>
+                <input type="text"
+                    name="phone"
+                    ng-model="main.user.phone"
+                    required min-length="4" />
+                <span ng-if="formName.phone.$error.required && formName.phone.$touched">
+                    Phone is Required!
+                </span>
+            </div>
+            <button ng-disabled="formName.$invalid"
+                ng-click="main.go()">
+                Submit
+            </button>
+        </form>
+    </div>
+</body>

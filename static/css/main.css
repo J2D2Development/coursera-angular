@@ -632,6 +632,14 @@ loading animatin by http://projects.lukehaas.me/css-loaders/
     text-decoration: none;
 }
 
+/*FORM STYLES*/
+.ng-touched.ng-valid {
+    border: 1px solid green;
+}
+.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
 
 @media (max-width: 600px) {
     .home-grid {
