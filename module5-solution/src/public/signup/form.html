@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign up for our newsletter!</h2>
+  <div class="text-center">
+      <form novalidate class="sign-up-form">
+          <div class="input-wrapper">
+            <input ng-model="main.items.firstName" type="text" name="first_name"
+            placeholder="First Name" />
+            <div class="error-message">test</div>
+          </div>
+          <div class="input-wrapper">
+            <input ng-model="main.items.lastName" type="text" name="last_name"
+            placeholder="Last Name" />
+            <div class="error-message">test</div>
+          </div>
+          <div class="input-wrapper">
+            <input ng-model="main.items.email" type="email" name="email"
+            placeholder="Email Address" />
+            <div class="error-message">test</div>
+          </div>
+          <div class="input-wrapper">
+            <input ng-model="main.items.phone" type="phone" name="phone"
+            placeholder="Phone Number" />
+            <div class="error-message">test</div>
+          </div>
+          <div class="input-wrapper">
+            <input ng-model="main.items.favorite" type="text" name="favorite_dish"
+            placeholder="What is your favorite dish?" />
+            <div class="error-message">test</div>
+          </div>
+          <div class="buttons-wrapper">
+              <input type="button" name="submit" value="Submit" class="btn btn-primary" />
+              <input type="button" name="cancel" value="Cancel" class="btn btn-warning" />
+          </div>
+      </form>
+  </div>
+</div>

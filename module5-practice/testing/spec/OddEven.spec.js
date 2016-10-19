@@ -1,3 +1,4 @@
+/* eslint-disable */
 describe('Odds detecting', function() {
     it('Should Recognize an Odd Number', function() {
         var result = isOdd(5);
