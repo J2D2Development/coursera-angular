@@ -1,34 +1,42 @@
 <div class="container">
   <h2 id="menu-categories-title" class="text-center">Sign up for our newsletter!</h2>
   <div class="text-center">
-      <form novalidate class="sign-up-form">
+      <form novalidate class="sign-up-form" name="signUpForm"
+        ng-controller="SignUpController as signUpCtrl">
+          <div class="notification-full" ng-if="signUpCtrl.successfulSubmit" ng-class="{'notification-full--show': signUpCtrl.successfulSubmit}">
+            <h3>Thank You</h3>
+            <div>Your information has been saved</div>
+        </div>
           <div class="input-wrapper">
-            <input ng-model="main.items.firstName" type="text" name="first_name"
-            placeholder="First Name" />
-            <div class="error-message">test</div>
+            <input ng-model="signUpCtrl.items.firstName" type="text" name="first_name"
+            placeholder="First Name" required />
+            <div class="error-message" ng-if="signUpForm.first_name.$error.required && signUpForm.first_name.$touched">* Required</div>
           </div>
           <div class="input-wrapper">
-            <input ng-model="main.items.lastName" type="text" name="last_name"
-            placeholder="Last Name" />
-            <div class="error-message">test</div>
+            <input ng-model="signUpCtrl.items.lastName" type="text" name="last_name"
+            placeholder="Last Name" required />
+            <div class="error-message" ng-if="signUpForm.last_name.$error.required && signUpForm.last_name.$touched">* Required</div>
           </div>
           <div class="input-wrapper">
-            <input ng-model="main.items.email" type="email" name="email"
-            placeholder="Email Address" />
-            <div class="error-message">test</div>
+            <input ng-model="signUpCtrl.items.email" type="email" name="email"
+            placeholder="Email Address" required />
+            <div class="error-message" ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">* Required</div>
           </div>
           <div class="input-wrapper">
-            <input ng-model="main.items.phone" type="phone" name="phone"
-            placeholder="Phone Number" />
-            <div class="error-message">test</div>
+            <input ng-model="signUpCtrl.items.phone" type="phone" name="phone"
+            placeholder="Phone Number" required />
+            <div class="error-message" ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">* Required</div>
           </div>
           <div class="input-wrapper">
-            <input ng-model="main.items.favorite" type="text" name="favorite_dish"
+            <input ng-model="signUpCtrl.items.favorite" type="text" name="favorite_dish"
             placeholder="What is your favorite dish?" />
-            <div class="error-message">test</div>
+            <div class="error-message" ng-if="signUpCtrl.noMenuItemError">No Item With That Number</div>
+          </div>
+          <div ng-if="signUpCtrl.noMenuItemErrorFailures > 2">
+            Try choosing from a list of existing items!
           </div>
           <div class="buttons-wrapper">
-              <input type="button" name="submit" value="Submit" class="btn btn-primary" />
+              <input type="button" name="submit" value="Submit" class="btn btn-primary" ng-click="signUpCtrl.submit(signUpForm)" />
               <input type="button" name="cancel" value="Cancel" class="btn btn-warning" />
           </div>
       </form>
