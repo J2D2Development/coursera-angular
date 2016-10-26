@@ -4,12 +4,25 @@
     angular.module('common')
         .service('SignUpService', SignUpService);
 
-    function SignUpService() {
+    SignUpService.$inject = ['$http', 'ApiPath'];
+    function SignUpService($http, ApiPath) {
         var service = this;
-        service.items = {};
+        service.myInfo = {};
 
-        service.saveItems = function(obj) {
-            service.items = obj;
+        service.saveMyInfo = function(obj) {
+            service.myInfo = obj;
         }
+
+        service.getMyInfo = function() {
+            return service.myInfo;
+        }
+
+        service.getMenuItem = function(sn) {
+            if(sn) sn = sn.toUpperCase();
+
+            return $http.get(ApiPath + '/menu_items/' + sn + '.json').then(function (response) {
+              return response.data;
+            });
+        };
     }
 })();

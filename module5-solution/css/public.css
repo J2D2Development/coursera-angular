@@ -205,13 +205,14 @@ h3.menu-item-title {
 }
 .error-message {
   position: absolute;
-  color:red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   top: 0;
   right: 0;
   width: 25%;
   height: 100%;
   font-size: 0.75em;
-  border: 1px solid red;
 }
 .buttons-wrapper {
   position: relative;
@@ -249,4 +250,26 @@ h3.menu-item-title {
 }
 .notification-full--show {
   opacity: 1;
+}
+
+/*my-info route*/
+.profile-container {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile-info-wrapper {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.profile-contact {
+
+}
+.profile-favorite {
+
 }
