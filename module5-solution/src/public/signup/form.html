@@ -6,6 +6,7 @@
           <div class="notification-full" ng-if="signUpCtrl.successfulSubmit" ng-class="{'notification-full--show': signUpCtrl.successfulSubmit}">
             <h3>Thank You</h3>
             <div>Your information has been saved</div>
+            <button class="btn btn-primary" ui-sref="public.myinfo">View My Profile</button>
         </div>
           <div class="input-wrapper">
             <input ng-model="signUpCtrl.items.firstName" type="text" name="first_name"
@@ -28,8 +29,8 @@
             <div class="error-message text-danger" ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">* Required</div>
           </div>
           <div class="input-wrapper">
-            <input ng-model="signUpCtrl.items.favorite" type="text" name="favorite_dish"
-            placeholder="What is your favorite dish?" />
+            <input ng-model="signUpCtrl.items.favoriteId" type="text" name="favorite_dish"
+            placeholder="What is your favorite dish?" required />
             <div class="error-message text-danger" ng-if="signUpCtrl.noMenuItemError">No Item With That Number</div>
           </div>
           <div ng-if="signUpCtrl.noMenuItemFailuresRemaining === 0">

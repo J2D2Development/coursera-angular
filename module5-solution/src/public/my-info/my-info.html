@@ -1,5 +1,5 @@
 <div class="container profile-container">
-    <h2 id="menu-categories-title" class="text-center">My Info</h2>
+    <h1 id="menu-categories-title" class="text-center">My Info</h2>
     <div class="text-center" style="width:100%;">
 
         <div ng-if="!myInfoCtrl.myInfo.firstName">
@@ -9,15 +9,21 @@
 
         <div ng-if="myInfoCtrl.myInfo.firstName" class="profile-info-wrapper">
             <div class="profile-contact">
+                <h3>Contact</h2>
                 First Name: {{myInfoCtrl.myInfo.firstName}}<br />
                 Last Name: {{myInfoCtrl.myInfo.lastName}}<br />
                 Email Address: {{myInfoCtrl.myInfo.email}}<br />
                 Phone Number: {{myInfoCtrl.myInfo.phone}}
             </div>
             <div class="profile-favorite">
-                My Favorite Dish<br />
-                {{myInfoCtrl.myInfo.favorite}}<br />
-                Image here
+                <h3>My Favorite Dish</h2>
+                {{myInfoCtrl.myInfo.favoriteDetails.name}}<br />
+                <img ng-if="myInfoCtrl.myInfo.favoriteImg"
+                    ng-src="{{myInfoCtrl.myInfo.favoriteImg}}"
+                    alt="{{myInfoCtrl.myInfo.favoriteDetails.name}}"
+                    class="favorite-img" />
+                <div ng-if="!myInfoCtrl.myInfo.favoriteImg">No Image Available</div>
+                <div class="text-small">{{myInfoCtrl.myInfo.favoriteDetails.description}}</div>
             </div>
         </div>
 

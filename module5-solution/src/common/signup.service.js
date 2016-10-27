@@ -18,8 +18,6 @@
         }
 
         service.getMenuItem = function(sn) {
-            if(sn) sn = sn.toUpperCase();
-
             return $http.get(ApiPath + '/menu_items/' + sn + '.json').then(function (response) {
               return response.data;
             });

@@ -19,24 +19,27 @@
 
             //show 'thank you' msg
             signUpCtrl.successfulSubmit = true;
-            $timeout(function() {
-                signUpCtrl.successfulSubmit = false;
-            }, 2000);
+            // $timeout(function() {
+            //     signUpCtrl.successfulSubmit = false;
+            // }, 2000);
         }
 
         signUpCtrl.checkMenuItem = function(details) {
             //reset 'no menu item' error on each check
             signUpCtrl.noMenuItemError = false;
 
-            // if($details.$valid) {
-                SignUpService.getMenuItem(signUpCtrl.items.favorite)
+            if(details.$valid) {
+                signUpCtrl.items.favoriteId = signUpCtrl.items.favoriteId.toUpperCase();
+                SignUpService.getMenuItem(signUpCtrl.items.favoriteId)
                     .then(function(response) {
                         //reset error countdown to dropdown disiplay
                         signUpCtrl.noMenuItemFailuresRemaining = 2;
 
                         //cache response for use in myinfo display
                         signUpCtrl.items.favoriteDetails = response;
-                        console.log('saving info...', signUpCtrl.items);
+
+                        //save info to service
+                        signUpCtrl.submit();
                     })
                     .catch(function(error) {
                         signUpCtrl.noMenuItemError = true;
@@ -44,7 +47,7 @@
                             signUpCtrl.noMenuItemFailuresRemaining -= 1;
                         }
                     });
-            //}
+            }
         }
     }
 })();
