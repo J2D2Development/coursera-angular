@@ -8,6 +8,7 @@
     function MyInfoController(myInfo, ApiPath) {
         var myInfoCtrl = this;
         myInfoCtrl.myInfo = myInfo;
+        console.log(myInfo);
 
         //check that a profile is set before setting image string
         if(myInfoCtrl.myInfo.firstName) {

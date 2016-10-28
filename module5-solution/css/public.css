@@ -206,15 +206,35 @@ h3.menu-item-title {
   align-items: flex-start;
   justify-content: space-around;
 }
+.profile-info-wrapper .menu-item-photo {
+  border: none;
+  margin: 6px auto 6px auto;
+}
+.profile-info-wrapper .menu-item-photo div {
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
 .profile-contact {
   width: 49%;
+}
+.profile-contact table {
+  border-collapse: separate;
+  border-spacing: 9px;
+  margin: 0px auto;
+}
+.profile-contact-table--left {
+  text-align: left;
+  width: 50%;
+}
+.profile-contact-table--right {
+  text-align: right;
+  width: 50%;
 }
 .profile-favorite {
   width: 49%;
 }
 .favorite-img {
   border-radius: 5px;
-  margin: 6px 0 6px 0;
 }
 .text-small {
   font-size: 0.85em;

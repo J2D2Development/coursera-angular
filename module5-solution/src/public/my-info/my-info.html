@@ -10,18 +10,36 @@
         <div ng-if="myInfoCtrl.myInfo.firstName" class="profile-info-wrapper">
             <div class="profile-contact">
                 <h3>Contact</h2>
-                First Name: {{myInfoCtrl.myInfo.firstName}}<br />
-                Last Name: {{myInfoCtrl.myInfo.lastName}}<br />
-                Email Address: {{myInfoCtrl.myInfo.email}}<br />
-                Phone Number: {{myInfoCtrl.myInfo.phone}}
+                <table>
+                    <tr>
+                        <td class="profile-contact-table--right">First Name:</td>
+                        <td class="profile-contact-table--left">{{myInfoCtrl.myInfo.firstName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-contact-table--right">Last Name:</td>
+                        <td class="profile-contact-table--left">{{myInfoCtrl.myInfo.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-contact-table--right">Email Address:</td>
+                        <td class="profile-contact-table--left">{{myInfoCtrl.myInfo.email}}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-contact-table--right">Phone Number:</td>
+                        <td class="profile-contact-table--left">{{myInfoCtrl.myInfo.phone}}</td>
+                    </tr>
+                </table>
             </div>
             <div class="profile-favorite">
                 <h3>My Favorite Dish</h2>
                 {{myInfoCtrl.myInfo.favoriteDetails.name}}<br />
-                <img ng-if="myInfoCtrl.myInfo.favoriteImg"
-                    ng-src="{{myInfoCtrl.myInfo.favoriteImg}}"
-                    alt="{{myInfoCtrl.myInfo.favoriteDetails.name}}"
-                    class="favorite-img" />
+                <div class="menu-item-photo" ng-if="myInfoCtrl.myInfo.favoriteImg">
+                    <div>
+                        {{myInfoCtrl.myInfo.favoriteDetails.short_name}}
+                    </div>
+                    <img ng-src="{{myInfoCtrl.myInfo.favoriteImg}}"
+                        alt="{{myInfoCtrl.myInfo.favoriteDetails.name}}"
+                        class="favorite-img" />
+                </div>
                 <div ng-if="!myInfoCtrl.myInfo.favoriteImg">No Image Available</div>
                 <div class="text-small">{{myInfoCtrl.myInfo.favoriteDetails.description}}</div>
             </div>
