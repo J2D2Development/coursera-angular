@@ -3,11 +3,6 @@
   <div class="text-center">
       <form novalidate class="sign-up-form" name="signUpForm"
         ng-controller="SignUpController as signUpCtrl">
-          <div class="notification-full" ng-if="signUpCtrl.successfulSubmit" ng-class="{'notification-full--show': signUpCtrl.successfulSubmit}">
-            <h3>Thank You</h3>
-            <div>Your information has been saved</div>
-            <button class="btn btn-primary" ui-sref="public.myinfo">View My Profile</button>
-        </div>
           <div class="input-wrapper">
             <input ng-model="signUpCtrl.items.firstName" type="text" name="first_name"
             placeholder="First Name" required />
@@ -39,6 +34,15 @@
           <div class="buttons-wrapper">
               <input type="button" name="submit" value="Submit" class="btn btn-primary" ng-click="signUpCtrl.checkMenuItem(signUpForm)" />
               <input ui-sref="public.home" type="button" name="cancel" value="Cancel" class="btn btn-warning" />
+          </div>
+          <div class="notification-full"
+            ng-class="{'notification-full-show': signUpCtrl.successfulSubmit}">
+            <div class="notification-full--text"
+              ng-class="{'notification-full--text-show': signUpCtrl.successfulSubmit}">
+              <h3>Thank You</h3>
+              <div>Your information has been saved</div>
+              <button class="btn btn-primary btn-margin-top" ui-sref="public.myinfo">View My Profile</button>
+            </div>
           </div>
       </form>
   </div>

@@ -1,12 +1,11 @@
 (function() {
     'use strict';
-    //try: move 'success' div to bottom of form element: may clear up the z-indexing issue (and can switch to ng-class for show/hide, creating a nice fade effect?)
 
     angular.module('public')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['$timeout', 'SignUpService'];
-    function SignUpController($timeout, SignUpService) {
+    SignUpController.$inject = ['$timeout', 'SignUpService', 'MenuService'];
+    function SignUpController($timeout, SignUpService, MenuService) {
         var signUpCtrl = this;
         signUpCtrl.items = {};
         signUpCtrl.successfulSubmit = false;
@@ -19,9 +18,6 @@
 
             //show 'thank you' msg
             signUpCtrl.successfulSubmit = true;
-            // $timeout(function() {
-            //     signUpCtrl.successfulSubmit = false;
-            // }, 2000);
         }
 
         signUpCtrl.checkMenuItem = function(details) {
@@ -45,9 +41,21 @@
                         signUpCtrl.noMenuItemError = true;
                         if(signUpCtrl.noMenuItemFailuresRemaining > 0) {
                             signUpCtrl.noMenuItemFailuresRemaining -= 1;
+                        } else {
+                            signUpCtrl.getAllItems();
                         }
                     });
             }
+        }
+
+        signUpCtrl.getAllItems = function() {
+            MenuService.getMenuItems()
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log('server error:', error);
+                });
         }
     }
 })();
