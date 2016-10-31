@@ -6,30 +6,60 @@
           <div class="input-wrapper">
             <input ng-model="signUpCtrl.items.firstName" type="text" name="first_name"
             placeholder="First Name" required />
-            <div class="error-message text-danger" ng-if="signUpForm.first_name.$error.required && signUpForm.first_name.$touched">* Required</div>
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.first_name.$error.required && signUpForm.first_name.$touched) || (signUpForm.first_name.$error.required && signUpCtrl.submitted)">
+                * Required
+            </div>
           </div>
           <div class="input-wrapper">
             <input ng-model="signUpCtrl.items.lastName" type="text" name="last_name"
             placeholder="Last Name" required />
-            <div class="error-message text-danger" ng-if="signUpForm.last_name.$error.required && signUpForm.last_name.$touched">* Required</div>
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.last_name.$error.required && signUpForm.last_name.$touched) || (signUpForm.last_name.$error.required && signUpCtrl.submitted)">
+                * Required
+            </div>
           </div>
           <div class="input-wrapper">
             <input ng-model="signUpCtrl.items.email" type="email" name="email"
             placeholder="Email Address" required />
-            <div class="error-message text-danger" ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">* Required</div>
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.email.$error.required && signUpForm.email.$touched) || (signUpForm.email.$error.required && signUpCtrl.submitted)">
+                * Required
+            </div>
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.email.$error.required && signUpForm.email.$touched) || (signUpForm.email.$error.required && signUpCtrl.submitted)">
+                * Required
+            </div>
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.email.$error.email && signUpForm.email.$touched) || (signUpForm.email.$error.email && signUpCtrl.submitted)">
+                * Invalid Email
+            </div>
           </div>
           <div class="input-wrapper">
             <input ng-model="signUpCtrl.items.phone" type="phone" name="phone"
             placeholder="Phone Number" required />
-            <div class="error-message text-danger" ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">* Required</div>
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.phone.$error.required && signUpForm.phone.$touched) || (signUpForm.phone.$error.required && signUpCtrl.submitted)">
+                * Required
+            </div>
           </div>
-          <div class="input-wrapper">
-            <input ng-model="signUpCtrl.items.favoriteId" type="text" name="favorite_dish"
+          <div class="input-wrapper" ng-if="signUpCtrl.noMenuItemFailuresRemaining > 0">
+            <input ng-model="signUpCtrl.items.favoriteId" type="text" name="favorite_id"
             placeholder="What is your favorite dish?" required />
+            <div class="error-message text-danger" 
+              ng-if="(signUpForm.favorite_id.$error.required && signUpForm.favorite_id.$touched) || (signUpForm.favorite_id.$error.required && signUpCtrl.submitted)">
+              * Required
+            </div> 
             <div class="error-message text-danger" ng-if="signUpCtrl.noMenuItemError">No Item With That Number</div>
           </div>
-          <div ng-if="signUpCtrl.noMenuItemFailuresRemaining === 0">
-            Try choosing from a list of existing items!
+          <div class="input-wrapper" ng-if="signUpCtrl.noMenuItemFailuresRemaining === 0">
+            Try choosing from a list of existing items below!
+            <select class="" ng-model="signUpCtrl.items.favoriteId">
+              <option ng-repeat="item in signUpCtrl.allItemsList"
+                value="{{item.short_name}}">
+                {{item.name}} ({{item.short_name}})
+              </option>
+            </select>
           </div>
           <div class="buttons-wrapper">
               <input type="button" name="submit" value="Submit" class="btn btn-primary" ng-click="signUpCtrl.checkMenuItem(signUpForm)" />

@@ -11,11 +11,11 @@
 
         service.saveMyInfo = function(obj) {
             service.myInfo = obj;
-        }
+        };
 
         service.getMyInfo = function() {
             return service.myInfo;
-        }
+        };
 
         service.getMenuItem = function(sn) {
             return $http.get(ApiPath + '/menu_items/' + sn + '.json').then(function (response) {
