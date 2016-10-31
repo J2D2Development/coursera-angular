@@ -1,38 +1,31 @@
 /*eslint-disable*/
-
-//add $httpBackend service to test signupservice/controller
 describe('Check Menu Item Service Test', function() {
     var $httpBackend;
 
     beforeEach(module('common'));
-    beforeEach(module('public'));
 
     beforeEach(inject(function($injector) {
         $httpBackend = $injector.get('$httpBackend');
         SignUpService = $injector.get('SignUpService');
 
         $httpBackend
-              .whenGET('http://mysterious-depths-84805.herokuapp.com/menu_items/A1.json')
-              .respond ({
-                  short_name: 'A1',
-                  name: 'Won Ton Soup - Fake'
-              }); 
-        //$httpBackend.expect('GET', 'http://mysterious-depths-84805.herokuapp.com/menu_items.json')
-            // .respond({'menu_items': [{short_name: 'A1', name: 'Won-ton soup'}, {short_name: 'A2', name: 'Other soup'}]});
-        // $rootScope = $injector.get('$rootScope');
+          .whenGET('https://mysterious-depths-84805.herokuapp.com/menu_items/A1.json')
+          .respond ({
+              short_name: 'A1',
+              name: 'Won Ton Soup'
+          });
 
-        // var $controller = $injector.get('$controller');
-
-        // createController = function() {
-        //     return $controller('SignUpController', {'$scope': $rootScope});
-        // };
+        $httpBackend
+          .whenGET('https://mysterious-depths-84805.herokuapp.com/menu_items/FAKE.json')
+          .respond(function(method, url, data, headers) {
+            //can return function with array- [statusCode, bodyText, data, responseText]
+            return [500, 'body', {}, 'Server Error - No menu item found'];
+        });
 
         afterEach(function() {
             $httpBackend.verifyNoOutstandingExpectation();
             $httpBackend.verifyNoOutstandingRequest();
         });
-
-        console.log('before eash');
     }));
 
     it('Should return a menu item when valid short_name provided', function() {
@@ -44,14 +37,22 @@ describe('Check Menu Item Service Test', function() {
         $httpBackend.flush();
 
         expect(item.short_name).toBe('A1');
-        expect(item.name).toBe('Won Ton Soup - Fake');
+        expect(item.name).toBe('Won Ton Soup');
     });
 
-    it('Should return error response on invalid short_name', function() {
-        expect(true).toBe(true);
-    });
+    it('Should return error when invalid short_name provided', function() {
+        var fakeItem;
+        SignUpService.getMenuItem('FAKE')
+            .then(function(response) {
+                console.log('Error Test- shouldn not see this');
+            },
+            function(error) {
+                fakeItem = error;
+            });
 
-    it('Should provide correct menu_item object on valid short_name', function() {
-        expect(false).toBe(!true);
+        $httpBackend.flush();
+
+        expect(fakeItem.statusText).toBe('Server Error - No menu item found');
+        expect(fakeItem.status).toBe(500);
     });
 });
